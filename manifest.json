@@ -1,0 +1,38 @@
+{
+  "manifest_version": 2,
+  "name": "SAG+",
+  "version": "0.1",
+  "description": "There are far too many people in this group",
+
+  "icons": {
+    "128": "images/icons/sag128.png", "16": "images/icons/sag16.png", "48": "images/icons/sag48.png"
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["https://www.facebook.com/groups/213530098665499/*"],
+      "js": ["jquery.min.js","contentscript.js"],
+      "run_at": "document_start"
+    }
+  ],
+
+  "background": {
+        "matches": ["https://www.facebook.com/groups/213530098665499/*"],
+        "scripts": ["background.js"],
+        "persistent": true
+    },
+
+  "web_accessible_resources": [
+    "images/*.png",
+    "images/*.gif",
+    "images/*.jpg"
+  ],
+
+  "page_action": {
+    "default_title": "SAG+",
+    "default_icon": "images/icons/sag128.png",
+    "default_popup": "popup.html"
+  },
+
+  "permissions":["storage", "webRequest"]
+}
