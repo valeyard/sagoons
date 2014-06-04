@@ -1,26 +1,19 @@
 chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
     chrome.pageAction.show(tabId);
-    //chrome.storage.local.set({"tweet": true, "vine":true, "filter":true, "webm":true},function (){
-// });
     chrome.pageAction.setTitle({
         tabId: tab.id,
         title: "YosPlus Settings"
     });
 });
 
-  function myfunction(){
-      var thisforum = $(this).parents('.forum'); //now thisforum contains your parent with class of forum
-      console.log(thisForum)
-    }
-
-chrome.webRequest.onCompleted.addListener(function(details) {
-        chrome.tabs.executeScript(details.tabId, {
-            file: 'contentscript.js',
-            allFrames: true // <-- You might want to tweak this
-        });
-    }, {
-        urls: ["https://www.facebook.com/groups/213530098665499/*"]
-    });
+// chrome.webRequest.onCompleted.addListener(function(details) {
+//         chrome.tabs.executeScript(details.tabId, {
+//             file: 'contentscript.js',
+//             allFrames: true // <-- You might want to tweak this
+//         });
+//     }, {
+//         urls: ["https://www.facebook.com/groups/213530098665499/*"]
+//     });
 
 // Check whether new version is installed
 chrome.runtime.onInstalled.addListener(function(details){
@@ -38,9 +31,3 @@ chrome.runtime.onInstalled.addListener(function(details){
         console.log("Updated from " + details.previousVersion + " to " + thisVersion + "!");
     }
 });
-
-// chrome.storage.local.set({"tweet": true, "vine":true, "filter":true},function (){
-// });
-
-
-
