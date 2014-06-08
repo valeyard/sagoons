@@ -1,8 +1,8 @@
 {
   "manifest_version": 2,
   "name": "SAG+",
-  "version": "0.1",
-  "description": "There are far too many people in this group",
+  "version": "1.69",
+  "description": "There are far too many people in the group",
 
   "icons": {
     "128": "images/icons/sag128.png", "16": "images/icons/sag16.png", "48": "images/icons/sag48.png"
