@@ -15,7 +15,7 @@ $(document).ready(function() {
 
   chrome.storage.sync.get(settings,function (obj){
     g = obj;
-    console.log(window.location.href)
+    //console.log(window.location.href)
     var emote = ":([A-Za-z0-9]+):";
     var h = new RegExp(emote, 'gi');
     var s = chrome.extension.getURL("images/icons/notfound.gif")
@@ -56,7 +56,7 @@ $(document).ready(function() {
     })
 
     $(document.body).on('DOMNodeInserted', function(e) { //every time something is inserted
-      console.log(e.target)
+      //console.log(e.target)
       if ($(e.target).is('.UFIList') || $(e.target).children().is('.UFIComment') || $(e.target).is('.UFIComment')  ) {
         //console.log("inserted")
         $(e.target).find(".UFICommentBody").each(function(index, post){
@@ -73,9 +73,7 @@ $(document).ready(function() {
           }
         })
       }
-      if ($(e.target).is('.userContentWrapper')) {
-        console.log("looooooooooooool")
-      }
+
       $("img").error(function () {
       $(this).unbind("error").attr("src", s);
     }); 
