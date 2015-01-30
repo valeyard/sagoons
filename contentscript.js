@@ -54,9 +54,45 @@ $(document).ready(function() {
       $(this).unbind("error").attr("src", s);
     }); 
     })
+$(".userContentWrapper").each(function(index, post){ //for the op
+console.log("FOUND THE FORM")
+// console.log($(this).serialize())
+//console.log($(this).find("[name='add_comment_text']").val())
+// $(this).find("[name='add_comment_text']").sendkeys("eyyy")
+// console.log($(this).find("[name='add_comment_text_text']")[0].innerText = "hey")
+// console.log($(this).find("[name='add_comment_text_text']")[0].innerText)
+
+// var event = jQuery.Event('keypress');
+// event.which = 13; 
+// event.keyCode = 13; //keycode to trigger this for simulating enter
+// jQuery(this).trigger(event);
+console.log($(this).serialize())
+console.log($(this).find("input[name='clp']").val())
+// $( "form" ).submit(function( event ) {
+//   alert( "Handler for .submit() called." );
+//   console.log("hahahaha vag")
+//   event.preventDefault();
+// });
+
+    $.ajax({
+        type: "POST",
+        url: "/ajax/ufi/modify.php",
+        data: $(this).serialize() + "&" + $.param({ add_comment_text_text: "test" }) + "&" + $.param({ add_comment_text: "test" }),
+
+        success: function(html)
+        {   
+              console.log(html)
+        },
+                error: function(html)
+        {   
+              console.log(html.responseText)
+        }
+    });
+  });
 
     $(document.body).on('DOMNodeInserted', function(e) { //every time something is inserted
       //console.log(e.target)
+      console.log("Lol")
       if ($(e.target).is('.UFIList') || $(e.target).children().is('.UFIComment') || $(e.target).is('.UFIComment')  ) {
         //console.log("inserted")
         $(e.target).find(".UFICommentBody").each(function(index, post){
